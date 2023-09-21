@@ -1,10 +1,23 @@
-const db = require('../database/models')
+const db = require('../database/models');
+const Genre= require('../database/models/Genre');
 
-
-module.exports = {
-    list: (req, res) => {
-        const movies = db.Genres.findAll();
-        console.log(movies);
-        res.render('moviesList', { movies });
+module.exports ={
+    list : (req, res) =>{
+       db.Genre.findAll()
+       .then(genres => {
+        return res.render('genresList',{
+            genres 
+        } )
+       })
+       .catch(error => console.log(error))
     },
+    detail : (req, res) => {
+db.Genre.findByPk(req.params.id)
+.then(genre =>{
+    return res.render('genresDetail',{
+        genre
+    })
+})
+.catch(error => console.log(error))
+    }
 }

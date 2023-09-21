@@ -16,14 +16,6 @@ module.exports = (sequelize, dataTypes) => {
             unique:true,
             allowNull: false
         },
-        created_at: {
-            type: dataTypes.DATE,
-            allowNull: false
-        },
-        update_at: {
-            type: dataTypes.DATE,
-            allowNull: false
-        },
         active:{
             type: dataTypes.BOOLEAN,
             defaultValue:1
